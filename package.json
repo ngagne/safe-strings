@@ -1,0 +1,22 @@
+{
+  "name": "safe-strings",
+  "version": "1.0.0",
+  "description": "A collection of unicode-safe, pure, string functions inspired by other programming languages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "docs": "jsdoc2md index.js > docs.md"
+  },
+  "keywords": [
+    "strings",
+    "unicode",
+    "pyhton",
+    "php"
+  ],
+  "author": "Nick Gagne",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^5.0.0",
+    "mocha": "^6.2.0"
+  }
+}

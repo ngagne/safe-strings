@@ -100,7 +100,7 @@ Return an array of strings split by the separator.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [separator] | <code>string</code> | <code>&quot;\&quot;\&quot;&quot;</code> | The separator char. |
+| [separator] | <code>string</code> | <code>&quot;&quot;</code> | The separator char. |
 
 <a name="ljust"></a>
 
@@ -114,7 +114,7 @@ Left-justify a string in a field of given width.
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
 | width | <code>number</code> |  | The length of the resulting string once. |
-| [fillChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character used to pad the string. |
+| [fillChar] | <code>string</code> | <code>&quot; &quot;</code> | The character used to pad the string. |
 
 <a name="rjust"></a>
 
@@ -128,7 +128,7 @@ Right-justify a string in a field of given width.
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
 | width | <code>number</code> |  | The length of the resulting string once. |
-| [fillChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character used to pad the string. |
+| [fillChar] | <code>string</code> | <code>&quot; &quot;</code> | The character used to pad the string. |
 
 <a name="center"></a>
 
@@ -142,7 +142,7 @@ Center a string in a field of given width.
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
 | width | <code>number</code> |  | The length of the resulting string once. |
-| [fillChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character used to pad the string. |
+| [fillChar] | <code>string</code> | <code>&quot; &quot;</code> | The character used to pad the string. |
 
 <a name="strip"></a>
 
@@ -155,7 +155,7 @@ Return a copy of the string with leading and trailing characters removed.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [trimChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character to be removed. |
+| [trimChar] | <code>string</code> | <code>&quot; &quot;</code> | The character to be removed. |
 
 <a name="lstrip"></a>
 
@@ -168,7 +168,7 @@ Return a copy of the string with leading characters removed.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [trimChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character to be removed. |
+| [trimChar] | <code>string</code> | <code>&quot; &quot;</code> | The character to be removed. |
 
 <a name="rstrip"></a>
 
@@ -181,7 +181,7 @@ Return a copy of the string with trailing characters removed.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [trimChar] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The character to be removed. |
+| [trimChar] | <code>string</code> | <code>&quot; &quot;</code> | The character to be removed. |
 
 <a name="swapcase"></a>
 
@@ -206,7 +206,7 @@ Return a copy of the string with the first char of each separated word converted
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [separator] | <code>string</code> | <code>&quot;\&quot; \&quot;&quot;</code> | The separator char. |
+| [separator] | <code>string</code> | <code>&quot; &quot;</code> | The separator char. |
 
 <a name="ucfirst"></a>
 
@@ -243,7 +243,7 @@ Return a copy of the string with HTML line breaks (<br>) inserted before all new
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | string | <code>string</code> |  | The input string. |
-| [breakElement] | <code>string</code> | <code>&quot;\&quot;&lt;br&gt;\&quot;&quot;</code> | The HTML line break string. |
+| [breakElement] | <code>string</code> | <code>&quot;&lt;br&gt;&quot;</code> | The HTML line break string. |
 
 <a name="expandtabs"></a>
 

@@ -7,7 +7,7 @@ A collection of unicode-safe string functions inspired by other programming lang
 Install using NPM:
 
 ```shell
-$ npm i string-util
+$ npm i safe-strings
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm i string-util
 Import specific functions:
 
 ```js
-const { center, capwords } = require('string-util');
+const { center, capwords } = require('safe-strings');
 
 center('my string', 20);
 capwords('this is a test');
@@ -24,7 +24,7 @@ capwords('this is a test');
 Import the entire library:
 
 ```js
-const stringUtil = require('string-util');
+const stringUtil = require('safe-strings');
 
 stringUtil.center('my string', 20);
 stringUtil.capwords('this is a test');

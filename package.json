@@ -16,7 +16,7 @@
   "author": "Nick Gagne",
   "license": "MIT",
   "devDependencies": {
-    "jsdoc-to-markdown": "^5.0.0",
-    "mocha": "^6.2.0"
+    "jsdoc-to-markdown": "^5.0.3",
+    "mocha": "^6.2.3"
   }
 }

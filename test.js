@@ -239,3 +239,219 @@ describe('expandtabs', () => {
     assert.strictEqual(util.expandtabs('\t🌮\t'), '        🌮        ');
   });
 });
+
+describe('isEmpty', () => {
+  it('should return true for empty strings', () => {
+    assert.strictEqual(util.isEmpty(''), true);
+  });
+  it('should return false for non-empty strings', () => {
+    assert.strictEqual(util.isEmpty('🌮'), false);
+  });
+});
+
+describe('contains', () => {
+  it('should detect contained substrings', () => {
+    assert.strictEqual(util.contains('safe-strings', 'safe'), true);
+  });
+  it('should support unicode substrings', () => {
+    assert.strictEqual(util.contains('🌮🍕', '🍕'), true);
+  });
+});
+
+describe('startsWith', () => {
+  it('should match prefixes', () => {
+    assert.strictEqual(util.startsWith('testing', 'tes'), true);
+  });
+  it('should support unicode prefixes', () => {
+    assert.strictEqual(util.startsWith('🌮taco', '🌮'), true);
+  });
+});
+
+describe('endsWith', () => {
+  it('should match suffixes', () => {
+    assert.strictEqual(util.endsWith('testing', 'ing'), true);
+  });
+  it('should support unicode suffixes', () => {
+    assert.strictEqual(util.endsWith('taco🌮', '🌮'), true);
+  });
+});
+
+describe('reverse', () => {
+  it('should reverse ascii text', () => {
+    assert.strictEqual(util.reverse('abc'), 'cba');
+  });
+  it('should reverse unicode text', () => {
+    assert.strictEqual(util.reverse('a🌮b'), 'b🌮a');
+  });
+});
+
+describe('slice', () => {
+  it('should slice unicode-safe indexes', () => {
+    assert.strictEqual(util.slice('a🌮bc', 1, 3), '🌮b');
+  });
+  it('should support negative indexes', () => {
+    assert.strictEqual(util.slice('a🌮bc', -2), 'bc');
+  });
+});
+
+describe('repeat', () => {
+  it('should repeat strings', () => {
+    assert.strictEqual(util.repeat('ab', 3), 'ababab');
+  });
+});
+
+describe('join', () => {
+  it('should join strings with separators', () => {
+    assert.strictEqual(util.join(['a', 'b', 'c'], '-'), 'a-b-c');
+  });
+  it('should support unicode strings', () => {
+    assert.strictEqual(util.join(['🌮', '🍕'], ''), '🌮🍕');
+  });
+});
+
+describe('count', () => {
+  it('should count substring occurrences', () => {
+    assert.strictEqual(util.count('banana', 'an'), 2);
+  });
+  it('should support unicode substring occurrences', () => {
+    assert.strictEqual(util.count('🌮a🌮b🌮', '🌮'), 3);
+  });
+  it('should match python empty substring behavior', () => {
+    assert.strictEqual(util.count('abc', ''), 4);
+  });
+});
+
+describe('replace', () => {
+  it('should replace all occurrences by default', () => {
+    assert.strictEqual(util.replace('a-b-c', '-', '_'), 'a_b_c');
+  });
+  it('should replace only requested occurrences', () => {
+    assert.strictEqual(util.replace('a-b-c', '-', '_', 1), 'a_b-c');
+  });
+  it('should support unicode replacement', () => {
+    assert.strictEqual(util.replace('🌮a🌮', '🌮', '🍕'), '🍕a🍕');
+  });
+});
+
+describe('partition', () => {
+  it('should split around first separator occurrence', () => {
+    assert.deepStrictEqual(util.partition('path/to/file', '/'), ['path', '/', 'to/file']);
+  });
+  it('should return python-style result when separator is not present', () => {
+    assert.deepStrictEqual(util.partition('taco', '/'), ['taco', '', '']);
+  });
+  it('should support unicode separators', () => {
+    assert.deepStrictEqual(util.partition('🌮-🍕-🥗', '-'), ['🌮', '-', '🍕-🥗']);
+  });
+  it('should throw for empty separators', () => {
+    assert.throws(() => util.partition('test', ''), /separator must not be empty/);
+  });
+});
+
+describe('rpartition', () => {
+  it('should split around last separator occurrence', () => {
+    assert.deepStrictEqual(util.rpartition('path/to/file', '/'), ['path/to', '/', 'file']);
+  });
+  it('should return python-style result when separator is not present', () => {
+    assert.deepStrictEqual(util.rpartition('taco', '/'), ['', '', 'taco']);
+  });
+  it('should support unicode separators', () => {
+    assert.deepStrictEqual(util.rpartition('🌮-🍕-🥗', '-'), ['🌮-🍕', '-', '🥗']);
+  });
+  it('should throw for empty separators', () => {
+    assert.throws(() => util.rpartition('test', ''), /separator must not be empty/);
+  });
+});
+
+describe('cut', () => {
+  it('should split into before and after when separator exists', () => {
+    assert.deepStrictEqual(util.cut('a=b=c', '='), ['a', 'b=c', true]);
+  });
+  it('should return found false when separator is missing', () => {
+    assert.deepStrictEqual(util.cut('abc', '='), ['abc', '', false]);
+  });
+  it('should support unicode separators', () => {
+    assert.deepStrictEqual(util.cut('🌮🍕🥗', '🍕'), ['🌮', '🥗', true]);
+  });
+});
+
+describe('removePrefix', () => {
+  it('should remove prefix when present', () => {
+    assert.strictEqual(util.removePrefix('prefix-value', 'prefix-'), 'value');
+  });
+  it('should return unchanged string when prefix is missing', () => {
+    assert.strictEqual(util.removePrefix('value', 'prefix-'), 'value');
+  });
+  it('should support unicode prefixes', () => {
+    assert.strictEqual(util.removePrefix('🌮taco', '🌮'), 'taco');
+  });
+});
+
+describe('removeSuffix', () => {
+  it('should remove suffix when present', () => {
+    assert.strictEqual(util.removeSuffix('value-suffix', '-suffix'), 'value');
+  });
+  it('should return unchanged string when suffix is missing', () => {
+    assert.strictEqual(util.removeSuffix('value', '-suffix'), 'value');
+  });
+  it('should support unicode suffixes', () => {
+    assert.strictEqual(util.removeSuffix('taco🌮', '🌮'), 'taco');
+  });
+});
+
+describe('take', () => {
+  it('should take unicode-safe character counts', () => {
+    assert.strictEqual(util.take('a🌮bc', 2), 'a🌮');
+  });
+  it('should return empty string for non-positive counts', () => {
+    assert.strictEqual(util.take('abc', 0), '');
+  });
+});
+
+describe('drop', () => {
+  it('should drop unicode-safe character counts', () => {
+    assert.strictEqual(util.drop('a🌮bc', 2), 'bc');
+  });
+  it('should return unchanged string for non-positive counts', () => {
+    assert.strictEqual(util.drop('abc', 0), 'abc');
+  });
+});
+
+describe('aliases', () => {
+  it('len should alias length', () => {
+    assert.strictEqual(util.len('🌮🍕'), util.length('🌮🍕'));
+  });
+  it('trim should alias strip', () => {
+    assert.strictEqual(util.trim('  test  '), util.strip('  test  '));
+  });
+  it('trimStart should alias lstrip', () => {
+    assert.strictEqual(util.trimStart('  test'), util.lstrip('  test'));
+  });
+  it('trimEnd should alias rstrip', () => {
+    assert.strictEqual(util.trimEnd('test  '), util.rstrip('test  '));
+  });
+  it('hasPrefix should alias startsWith', () => {
+    assert.strictEqual(util.hasPrefix('testing', 'tes'), util.startsWith('testing', 'tes'));
+  });
+  it('hasSuffix should alias endsWith', () => {
+    assert.strictEqual(util.hasSuffix('testing', 'ing'), util.endsWith('testing', 'ing'));
+  });
+  it('title should alias capwords', () => {
+    assert.strictEqual(util.title('this is test'), util.capwords('this is test'));
+  });
+  it('capitalize should alias ucfirst', () => {
+    assert.strictEqual(util.capitalize('test'), util.ucfirst('test'));
+  });
+  it('stripPrefix should alias removePrefix', () => {
+    assert.strictEqual(util.stripPrefix('prefix-value', 'prefix-'), util.removePrefix('prefix-value', 'prefix-'));
+  });
+  it('stripSuffix should alias removeSuffix', () => {
+    assert.strictEqual(util.stripSuffix('value-suffix', '-suffix'), util.removeSuffix('value-suffix', '-suffix'));
+  });
+  it('trimPrefix should alias removePrefix', () => {
+    assert.strictEqual(util.trimPrefix('prefix-value', 'prefix-'), util.removePrefix('prefix-value', 'prefix-'));
+  });
+  it('trimSuffix should alias removeSuffix', () => {
+    assert.strictEqual(util.trimSuffix('value-suffix', '-suffix'), util.removeSuffix('value-suffix', '-suffix'));
+  });
+});

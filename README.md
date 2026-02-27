@@ -30,6 +30,15 @@ stringUtil.center('my string', 20);
 stringUtil.capwords('this is a test');
 ```
 
+## Cross-language helpers
+
+Includes aliases and helpers inspired by Go/Python/Rust naming:
+`len`, `trim`, `trimStart`, `trimEnd`, `hasPrefix`, `hasSuffix`, `title`,
+`capitalize`, `contains`, `startsWith`, `endsWith`, `reverse`, `slice`,
+`repeat`, `join`, `count`, `replace`, `partition`, `rpartition`, `cut`,
+`removePrefix`, `removeSuffix`, `stripPrefix`, `stripSuffix`, `trimPrefix`,
+`trimSuffix`, `take`, `drop`, and `isEmpty`.
+
 ## Functions
 
 <dl>
@@ -74,6 +83,57 @@ stringUtil.capwords('this is a test');
 </dd>
 <dt><a href="#expandtabs">expandtabs(string, [tabsize])</a> ⇒ <code>string</code></dt>
 <dd><p>Return a copy of the string with tab chars (\t) replaced by spaces.</p>
+</dd>
+<dt><a href="#isEmpty">isEmpty(string)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Return true if the string is empty.</p>
+</dd>
+<dt><a href="#contains">contains(string, substring)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Return true if string contains the given substring.</p>
+</dd>
+<dt><a href="#startsWith">startsWith(string, prefix)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Return true if string starts with the given prefix.</p>
+</dd>
+<dt><a href="#endsWith">endsWith(string, suffix)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Return true if string ends with the given suffix.</p>
+</dd>
+<dt><a href="#reverse">reverse(string)</a> ⇒ <code>string</code></dt>
+<dd><p>Return a new string with chars in reverse order.</p>
+</dd>
+<dt><a href="#slice">slice(string, [start], [end])</a> ⇒ <code>string</code></dt>
+<dd><p>Return a unicode-safe string slice.</p>
+</dd>
+<dt><a href="#repeat">repeat(string, count)</a> ⇒ <code>string</code></dt>
+<dd><p>Return a string repeated count times.</p>
+</dd>
+<dt><a href="#join">join(strings, [separator])</a> ⇒ <code>string</code></dt>
+<dd><p>Join an array of strings with a separator.</p>
+</dd>
+<dt><a href="#count">count(string, substring)</a> ⇒ <code>number</code></dt>
+<dd><p>Count non-overlapping substring occurrences.</p>
+</dd>
+<dt><a href="#replace">replace(string, oldSubstring, newSubstring, [replaceCount])</a> ⇒ <code>string</code></dt>
+<dd><p>Replace at most count occurrences of a substring.</p>
+</dd>
+<dt><a href="#partition">partition(string, separator)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Partition the string at the first occurrence of separator.</p>
+</dd>
+<dt><a href="#rpartition">rpartition(string, separator)</a> ⇒ <code>Array.&lt;string&gt;</code></dt>
+<dd><p>Partition the string at the last occurrence of separator.</p>
+</dd>
+<dt><a href="#cut">cut(string, separator)</a> ⇒ <code>Array.&lt;(string|boolean)&gt;</code></dt>
+<dd><p>Cut the string around the first occurrence of separator.</p>
+</dd>
+<dt><a href="#removePrefix">removePrefix(string, prefix)</a> ⇒ <code>string</code></dt>
+<dd><p>Remove a leading prefix from the string if present.</p>
+</dd>
+<dt><a href="#removeSuffix">removeSuffix(string, suffix)</a> ⇒ <code>string</code></dt>
+<dd><p>Remove a trailing suffix from the string if present.</p>
+</dd>
+<dt><a href="#take">take(string, count)</a> ⇒ <code>string</code></dt>
+<dd><p>Return the first count unicode characters.</p>
+</dd>
+<dt><a href="#drop">drop(string, count)</a> ⇒ <code>string</code></dt>
+<dd><p>Drop the first count unicode characters.</p>
 </dd>
 </dl>
 
@@ -258,3 +318,224 @@ Return a copy of the string with tab chars (\t) replaced by spaces.
 | string | <code>string</code> |  | The input string. |
 | [tabsize] | <code>number</code> | <code>8</code> | The input string. |
 
+<a name="isEmpty"></a>
+
+## isEmpty(string) ⇒ <code>boolean</code>
+Return true if the string is empty.
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if the string is empty.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+
+<a name="contains"></a>
+
+## contains(string, substring) ⇒ <code>boolean</code>
+Return true if string contains the given substring.
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if substring is found.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| substring | <code>string</code> | The substring to search for. |
+
+<a name="startsWith"></a>
+
+## startsWith(string, prefix) ⇒ <code>boolean</code>
+Return true if string starts with the given prefix.
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if string starts with prefix.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| prefix | <code>string</code> | The prefix to check. |
+
+<a name="endsWith"></a>
+
+## endsWith(string, suffix) ⇒ <code>boolean</code>
+Return true if string ends with the given suffix.
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if string ends with suffix.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| suffix | <code>string</code> | The suffix to check. |
+
+<a name="reverse"></a>
+
+## reverse(string) ⇒ <code>string</code>
+Return a new string with chars in reverse order.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The reversed string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+
+<a name="slice"></a>
+
+## slice(string, [start], [end]) ⇒ <code>string</code>
+Return a unicode-safe string slice.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The sliced string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  | The input string. |
+| [start] | <code>number</code> | <code>0</code> | The start index. |
+| [end] | <code>number</code> |  | The end index. |
+
+<a name="repeat"></a>
+
+## repeat(string, count) ⇒ <code>string</code>
+Return a string repeated count times.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The repeated string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| count | <code>number</code> | Number of repetitions. |
+
+<a name="join"></a>
+
+## join(strings, [separator]) ⇒ <code>string</code>
+Join an array of strings with a separator.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The joined string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| strings | <code>Array.&lt;string&gt;</code> |  | Strings to join. |
+| [separator] | <code>string</code> | <code>&quot;\&quot;\&quot;&quot;</code> | Separator string. |
+
+<a name="count"></a>
+
+## count(string, substring) ⇒ <code>number</code>
+Count non-overlapping substring occurrences.
+
+**Kind**: global function  
+**Returns**: <code>number</code> - Number of occurrences.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| substring | <code>string</code> | The substring to count. |
+
+<a name="replace"></a>
+
+## replace(string, oldSubstring, newSubstring, [replaceCount]) ⇒ <code>string</code>
+Replace at most count occurrences of a substring.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The replaced string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  | The input string. |
+| oldSubstring | <code>string</code> |  | Substring to replace. |
+| newSubstring | <code>string</code> |  | Replacement substring. |
+| [replaceCount] | <code>number</code> | <code>-1</code> | Max replacements, -1 for all. |
+
+<a name="partition"></a>
+
+## partition(string, separator) ⇒ <code>Array.&lt;string&gt;</code>
+Partition the string at the first occurrence of separator.
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - [before, separator, after]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| separator | <code>string</code> | The separator to search for. |
+
+<a name="rpartition"></a>
+
+## rpartition(string, separator) ⇒ <code>Array.&lt;string&gt;</code>
+Partition the string at the last occurrence of separator.
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;string&gt;</code> - [before, separator, after]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| separator | <code>string</code> | The separator to search for. |
+
+<a name="cut"></a>
+
+## cut(string, separator) ⇒ <code>Array.&lt;(string\|boolean)&gt;</code>
+Cut the string around the first occurrence of separator.
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;(string\|boolean)&gt;</code> - [before, after, found]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| separator | <code>string</code> | The separator to search for. |
+
+<a name="removePrefix"></a>
+
+## removePrefix(string, prefix) ⇒ <code>string</code>
+Remove a leading prefix from the string if present.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The string without prefix.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| prefix | <code>string</code> | The prefix to remove. |
+
+<a name="removeSuffix"></a>
+
+## removeSuffix(string, suffix) ⇒ <code>string</code>
+Remove a trailing suffix from the string if present.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The string without suffix.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| suffix | <code>string</code> | The suffix to remove. |
+
+<a name="take"></a>
+
+## take(string, count) ⇒ <code>string</code>
+Return the first count unicode characters.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The resulting string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| count | <code>number</code> | Number of chars to keep. |
+
+<a name="drop"></a>
+
+## drop(string, count) ⇒ <code>string</code>
+Drop the first count unicode characters.
+
+**Kind**: global function  
+**Returns**: <code>string</code> - The resulting string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The input string. |
+| count | <code>number</code> | Number of chars to skip. |

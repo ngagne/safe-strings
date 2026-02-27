@@ -1,6 +1,6 @@
 {
   "name": "safe-strings",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of unicode-safe, pure, string functions inspired by other programming languages.",
   "main": "index.js",
   "scripts": {
